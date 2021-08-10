@@ -34,7 +34,7 @@ export const AddCartButton = styled.div`
     cursor:pointer;
     display: flex;
     justify-content: space-between;
-    width:24%;
+    width:26%;
     font-family: 'Quicksand', sans-serif;
     background-color: white;
     font-weight: bold;
