@@ -34,7 +34,7 @@ export const AddCartButton = styled.div`
     cursor:pointer;
     display: flex;
     justify-content: space-between;
-    width:26%;
+    width:24%;
     font-family: 'Quicksand', sans-serif;
     background-color: white;
     font-weight: bold;
@@ -73,10 +73,10 @@ export const WarningIcon = styled(BsFillExclamationCircleFill)`
 export const Span = styled.div.attrs((props)=>({
     className:props.classname
 }))`
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Quicksand&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
     font-size:14px;
     width: 100%;
-    color:#898989;
+    color:#898989 ;
 
     &.trailer{
         transition: .5s ease !important;
@@ -98,10 +98,10 @@ export const Span = styled.div.attrs((props)=>({
     }
 
     &.title{
+        font-family: 'Quicksand', sans-serif;
         font-size: 30px;
-        font-weight: 400;
+        font-weight: 600;
         margin:0;
-        opacity: 0.9;
         color:#414141;
     }
     &.warning{
@@ -251,8 +251,6 @@ export const Wrap = styled.div.attrs((props)=>({
                     padding-top: 0px;
                     padding-right: 7px;
                     flex-wrap:wrap;
-                    color:black;
-                    opacity: 0.6;
                     font-family: 'Quicksand', sans-serif; 
                     
                     span{

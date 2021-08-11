@@ -10,12 +10,14 @@ import { Avatar } from '@material-ui/core';
 import { connect } from 'react-redux';
 import WishListDropdown from '../wish-list-dropdown/wishListDropdown.component'
 import {signInWithGoggleStart} from '../../redux/user/user.action'
+import { selectCurrentUser } from '../../redux/user/user.selector';
+
 
 import WishListIcon  from '../wish-list-icon/wishList-Icon.component';
-const Header = ({hidden,signInWithGoggleStart})=>{
-  
+const Header = ({hidden,currentUser,signInWithGoggleStart})=>{
+  const {photoURL} = currentUser
   const [state,setState] =  useState(true);
-
+  console.log(currentUser)
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
        console.log("One more night");
@@ -33,8 +35,16 @@ const Header = ({hidden,signInWithGoggleStart})=>{
   return(
     <Container>
       <Link href="/">
-        <FaGooglePlay/> 
-        <span>Google Play</span>
+        <img style={{paddingLeft:'20px',width:'39px',height:'39px'}}src='https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/90716814_227701518373804_7491086833023975424_n.png?_nc_cat=109&ccb=1-4&_nc_sid=ae9488&_nc_ohc=ME_fxo0ks-sAX-7mqZG&_nc_ht=scontent.fsgn2-4.fna&oh=566924fb4b39ff7354b44fef181f0c29&oe=61369CDB'/> 
+        <span>
+        <span style={{margin:0,color:'#29ace2'}}>G</span>
+        <span style={{margin:0,color:'#ee3b3a'}}>o</span>
+        <span style={{margin:0,color:'#fedf26'}}>o</span>
+        <span style={{margin:0,color:'#21aae1'}}>g</span>
+        <span style={{margin:0,color:'#3cb64c'}}>l</span>
+        <span style={{margin:0,color:'#ee3a49'}}>e</span> 
+        <span style={{color:'#909090'}}>Play</span>
+        </span>
       </Link>
       <Wrap>
         <SearchField id="standard-required"  onChange={onChangeHandling} onKeyPress={handleKeyPress} placeholder="Search Field"/>
@@ -49,7 +59,7 @@ const Header = ({hidden,signInWithGoggleStart})=>{
       </IconWrap>
 
       <IconWrap>
-        <Ava onClick={()=>{signInWithGoggleStart()}}>
+        <Ava src={photoURL} onClick={()=>{signInWithGoggleStart()}}>
         </Ava>
       </IconWrap>
       {hidden ? null : <WishListDropdown />}
@@ -81,7 +91,7 @@ const Link = styled.a`
     text-decoration:none;
     color: black;
     cursor: pointer;  
-    font-size: 28px;
+    font-size: 26px;
     display: flex;
     flex:0.2;
     justify-content: center;
@@ -96,6 +106,9 @@ const Link = styled.a`
 
     span{
       margin-left:8px ;
+      font-weight: 600;
+      font-family: 'Arvo', serif;
+      /* font-family: 'Patua One', cursive; */
     }
 `
 
@@ -138,7 +151,8 @@ const SearchField = styled(TextField)`
 
 `
 const mapStateToProps = createStructuredSelector({
-  hidden:selectListHidden
+  hidden:selectListHidden,
+  currentUser:selectCurrentUser
 })
 
 const mapDispatchToProps = dispatch =>({

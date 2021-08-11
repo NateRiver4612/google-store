@@ -34,13 +34,14 @@ export const Wrap = styled.div.attrs(props=>({
 `
 export const Span = styled.span.attrs(props=>({
     className: props.classname,}))`
+    
     font-family: 'Quicksand', sans-serif;
     &.Title{
         font-size:17px;
-        color:black;
+        color:#636363;
         position: relative;
         box-sizing: border-box;
-        font-weight: 550 !important;
+        font-weight: 600 !important;
         
     }
     &.Title::after{

@@ -33,10 +33,10 @@ export const AddCartButton = styled.div`
     cursor:pointer;
     display: flex;
     justify-content: space-between;
-    width:26%;
-    /* font-family: 'Quicksand', sans-serif; */
+    width:24%;
+    font-family: 'Quicksand', sans-serif;
     background-color: white;
-    font-weight: 500;
+    font-weight: bold;
     align-items: center;
     color:#b04131;
     -webkit-filter: brightness(105%);
@@ -88,12 +88,11 @@ export const Span = styled.div.attrs((props)=>({
     }
 
     &.title{
-        /* font-family: 'Quicksand', sans-serif; */
+        font-family: 'Quicksand', sans-serif;
         font-size: 30px;
-        font-weight: 400;
-        opacity: 0.9;
-        color:#414141;
+        font-weight: 600;
         margin:0;
+        color:#414141;
     }
     &.type-audio{
         width:60%;
@@ -247,8 +246,7 @@ export const Wrap = styled.div.attrs((props)=>({
                     padding-top: 0px;
                     padding-right: 7px;
                     flex-wrap:wrap;
-                    /* font-family: 'Quicksand', sans-serif;  */
-                    opacity: 0.6;
+                    font-family: 'Quicksand', sans-serif; 
                     
                     a{
                         line-height: 30px;

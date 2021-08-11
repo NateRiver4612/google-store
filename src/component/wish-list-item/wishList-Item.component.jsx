@@ -110,9 +110,8 @@ const Span = styled.div.attrs((props)=>({
 }))`
     &.relate-title{
         font-size:16px;
-        /* font-family: 'Quicksand', sans-serif; */
+        font-family: 'Quicksand', sans-serif;
         opacity: 0.8;
-        font-weight:500;
         color:black;
         position: relative;
         font-weight: 600;
