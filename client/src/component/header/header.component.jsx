@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import WishListDropdown from '../wish-list-dropdown/wishListDropdown.component'
 import {signInWithGoggleStart} from '../../redux/user/user.action'
 import { selectCurrentUser } from '../../redux/user/user.selector';
-
+import {Link} from 'react-router-dom'
 
 import WishListIcon  from '../wish-list-icon/wishList-Icon.component';
 const Header = ({hidden,currentUser,signInWithGoggleStart})=>{
@@ -33,7 +33,7 @@ const Header = ({hidden,currentUser,signInWithGoggleStart})=>{
   // <img style={{paddingLeft:'20px',width:'39px',height:'39px'}}src='https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/90716814_227701518373804_7491086833023975424_n.png?_nc_cat=109&ccb=1-4&_nc_sid=ae9488&_nc_ohc=ME_fxo0ks-sAX-7mqZG&_nc_ht=scontent.fsgn2-4.fna&oh=566924fb4b39ff7354b44fef181f0c29&oe=61369CDB'/> 
   return(
     <Container>
-      <Link href="/">
+      <LINK to="/">
         <img src='https://scontent.fsgn2-5.fna.fbcdn.net/v/t1.15752-9/s2048x2048/228085913_714575273276171_6064261169318172546_n.png?_nc_cat=102&ccb=1-4&_nc_sid=ae9488&_nc_ohc=jdbXs-KAlFQAX8tGhVZ&_nc_ht=scontent.fsgn2-5.fna&oh=0a8266e782334f2fe635a3dc4e6bc836&oe=613B4933'/>
         <span style={{margin:0}}>
         <span style={{margin:0,color:'#29ace2'}}>G</span>
@@ -44,7 +44,7 @@ const Header = ({hidden,currentUser,signInWithGoggleStart})=>{
         <span style={{margin:0,color:'#ee3a49'}}>e</span> 
         <span style={{color:'#909090'}}>Play</span>
         </span>
-      </Link>
+      </LINK>
       <Wrap>
         <SearchField id="standard-required"  onChange={onChangeHandling} onKeyPress={handleKeyPress} placeholder="Search Field"/>
         <Button  color="primary" disabled={state}  >
@@ -96,7 +96,7 @@ const Wrap = styled.div.attrs(props=>({
   }
 `
 
-const Link = styled.a`
+const LINK = styled(Link)`
     text-decoration:none;
     color: black;
     cursor: pointer;  

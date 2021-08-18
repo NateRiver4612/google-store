@@ -1,18 +1,20 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,lazy,Suspense} from 'react';
 import Header from './component/header/header.component'
 import { Switch, Route} from 'react-router-dom'
 import styled from 'styled-components'
 import NavBar from './component/navbar/navbar.component'
-import Entertainment from './page/Entertainment/Entertainment.page'
-import Application from './page/Application/Application.page';
-import Movie from './page/Movie/Movie.page'
-import Book from './page/Book/Book.page'
-import MovieCollection from './page/Movie/MovieCollection.page'
-import CategoryBar from './component/category-bar/CategoryBar.component';
 import {fetchCollectionsStart} from './redux/store/store.action'
 import {connect} from 'react-redux'
-import { firestore } from './firebase/firebase.utils';
-import CheckoutPage from './page/Checkout/CheckoutPage.page';
+import Spinner from './component/spinner/spinner.component';
+
+
+
+const Application = lazy(()=>import('./page/Application/Application.page'))
+const Entertainment = lazy(()=>import('./page/Entertainment/Entertainment.page'))
+const Movie = lazy(()=>import('./page/Movie/Movie.page'))
+const Book = lazy(()=>import('./page/Book/Book.page'))
+const CheckoutPage = lazy(()=>import('./page/Checkout/CheckoutPage.page'))
+
 const App = ({fetchCollectionsStart})=>{
 
     useEffect(() => {
@@ -28,11 +30,13 @@ const App = ({fetchCollectionsStart})=>{
           </NavWrapper>
           <SwitchWrapper>
             <Switch>
-              <Route  path='/entertainments' component={Entertainment} />
-              <Route  path='/applications' component={Application} />
-              <Route path='/movies' component={Movie} />
-              <Route path='/checkout' component={CheckoutPage}/>
-              <Route  path='/books' component={Book} />
+              <Suspense fallback={<Spinner/>}>
+                <Route  path='/entertainments' component={Entertainment} />
+                <Route  path='/applications' component={Application} />
+                <Route path='/movies' component={Movie} />
+                <Route path='/checkout' component={CheckoutPage}/>
+                <Route  path='/books' component={Book} />
+              </Suspense>
             </Switch>
           </SwitchWrapper> 
          </AppWrapper> 
